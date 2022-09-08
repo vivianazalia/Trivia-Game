@@ -5,6 +5,7 @@ using Agate.MVC.Base;
 
 namespace Trivia.SaveData
 {
+    [System.Serializable]
     public class SaveDataModel : BaseModel
     {
         public int Coin;

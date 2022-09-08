@@ -12,6 +12,8 @@ namespace Trivia.Pack
     {
         public override string SceneName => "Pack";
 
+        private PackDataController packDataController;
+
         protected override IConnector[] GetSceneConnectors()
         {
             return null;
@@ -27,6 +29,7 @@ namespace Trivia.Pack
 
         protected override IEnumerator InitSceneObject()
         {
+            packDataController.SetView(_view.packDataView);
             _view.SetCallbacks(GoBack);
             yield return null;
         }
@@ -43,7 +46,7 @@ namespace Trivia.Pack
 
         public void SelectPack(string packID)
         {
-            
+            SceneLoader.Instance.LoadScene("Level");
         }
     }
 

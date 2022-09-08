@@ -6,9 +6,9 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
-namespace Trivia.PackData
+namespace Trivia.LevelSpawner
 {
-    public class PackDataView : BaseView
+    public class LevelSpawnerView : BaseView
     {
         
     }

@@ -4,12 +4,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using Trivia.PackData;
+using Trivia.PackDataItem;
 
 namespace Trivia.Pack
 {
     public class PackView : BaseSceneView
     {
-        [SerializeField] private Button backButton;
+        public Button backButton;
+
+        public PackDataView packDataView;
+        public PackDataItemView packDataItemView;
 
         public void SetCallbacks(UnityAction onClickBackButton)
         {

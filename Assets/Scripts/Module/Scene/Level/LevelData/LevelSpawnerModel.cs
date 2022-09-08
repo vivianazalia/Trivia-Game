@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Agate.MVC.Base;
 using Trivia.PackDataItem;
+using Trivia.LevelData;
 
-namespace Trivia.PackData
+namespace Trivia.LevelSpawner
 {
-    public class PackDataModel : BaseModel
+    public class LevelSpawnerModel : BaseModel
     {
-        public List<PackDataItemModel> PackDataItem { get; private set; } = new();
-        private const string file = "pack";
+        public List<LevelDataModel> PackDataItem { get; private set; } = new();
+        private const string key = "levelID";
 
         public void Load()
         {
@@ -21,7 +22,7 @@ namespace Trivia.PackData
 
         }
 
-        public void AddToList(PackDataItemModel item)
+        public void AddToList(LevelDataModel item)
         {
             PackDataItem.Add(item);
         }

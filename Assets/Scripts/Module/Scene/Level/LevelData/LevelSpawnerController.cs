@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Agate.MVC.Base;
-using Trivia.PackDataItem;
+using Trivia.LevelData;
 
-namespace Trivia.PackData
+namespace Trivia.LevelSpawner
 {
-    public class PackDataController : ObjectController<PackDataController, PackDataModel, PackDataView>
+    public class LevelSpawnerController : ObjectController<LevelSpawnerController, LevelSpawnerModel, LevelSpawnerView>
     {
         public override IEnumerator Initialize()
         {
@@ -15,12 +15,12 @@ namespace Trivia.PackData
 
         public void GenerateLevel()
         {
-            GameObject prefab = Resources.Load<GameObject>("Pack/PackView");
-            PackDataItemView view = Object.Instantiate(prefab).GetComponent<PackDataItemView>();
+            GameObject prefab = Resources.Load<GameObject>("Level/Level");
+            LevelDataView view = Object.Instantiate(prefab).GetComponent<LevelDataView>();
             view.transform.SetParent(_view.transform);
             
-            PackDataItemModel model = new PackDataItemModel();
-            PackDataItemController controller = new PackDataItemController();
+            LevelDataModel model = new LevelDataModel();
+            LevelDataController controller = new LevelDataController();
             InjectDependencies(controller);
             controller.Init(model, view);
             _model.AddToList(model);
@@ -34,12 +34,12 @@ namespace Trivia.PackData
             }
         }
 
-        public List<PackDataModel> GetPackList()
+        public List<LevelDataModel> GetPackList()
         {
             return null;
         }
 
-        public void InitPackList(List<PackDataItemModel> pack)
+        public void InitPackList(List<LevelDataModel> pack)
         {
             foreach(var p in pack)
             {
@@ -47,7 +47,7 @@ namespace Trivia.PackData
             }
         }
 
-        public override void SetView(PackDataView view)
+        public override void SetView(LevelSpawnerView view)
         {
             base.SetView(view);
             LoadPackList();
