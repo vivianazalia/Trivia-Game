@@ -11,27 +11,12 @@ namespace Trivia.Pack
     {
         public override string SceneName => "Pack";
 
-        protected override ILoad GetLoader()
-        {
-            return null;
-        }
-
-        protected override IMain GetMain()
-        {
-            return null;
-        }
-
         protected override IConnector[] GetSceneConnectors()
         {
             return null;
         }
 
         protected override IController[] GetSceneDependencies()
-        {
-            return null;
-        }
-
-        protected override ISplash GetSplash()
         {
             return null;
         }

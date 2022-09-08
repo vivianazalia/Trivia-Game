@@ -5,11 +5,11 @@ using System.Collections.Generic;
 using Trivia.Boot;
 using UnityEngine;
 
-namespace Trivia.Gameplay
+namespace Trivia.Level
 {
-    public class GameplayLauncher : SceneLauncher<GameplayLauncher, GameplayView>
+    public class LevelLauncher : SceneLauncher<LevelLauncher, LevelView>
     {
-        public override string SceneName => "Gameplay";
+        public override string SceneName => "Level";
 
         protected override IConnector[] GetSceneConnectors()
         {
@@ -23,6 +23,7 @@ namespace Trivia.Gameplay
 
         protected override IEnumerator InitSceneObject()
         {
+            _view.SetCallbacks(GoBack);
             yield return null;
         }
 
@@ -31,19 +32,15 @@ namespace Trivia.Gameplay
             yield return null;
         }
 
-        public void QuitGame()
+        public void GoBack()
         {
-
+            SceneLoader.Instance.LoadScene("Pack");
         }
 
-        public void GoToLevelScene()
-        {
-
-        }
-
-        public void GoToPackScene()
+        public void SelectLevel(string levelID)
         {
 
         }
     }
 }
+
