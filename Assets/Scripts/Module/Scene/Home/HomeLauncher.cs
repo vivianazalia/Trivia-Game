@@ -11,21 +11,6 @@ namespace Trivia.Home
     {
         public override string SceneName => "Home";
 
-        protected override ILoad GetLoader()
-        {
-            return SceneLoader.Instance;
-        }
-
-        protected override IMain GetMain()
-        {
-            return GameMain.Instance;
-        }
-
-        protected override ISplash GetSplash()
-        {
-            return SplashScreen.Instance;
-        }
-
         protected override IConnector[] GetSceneConnectors()
         {
             return null;
