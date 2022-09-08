@@ -49,7 +49,7 @@ namespace Trivia.Home
 
         public void StartPlay()
         {
-            SceneLoader.Instance.LoadScene("Gameplay");
+            SceneLoader.Instance.LoadScene("Pack");
         }
     }
 }
