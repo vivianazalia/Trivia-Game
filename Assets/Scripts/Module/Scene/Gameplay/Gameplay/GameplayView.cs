@@ -8,6 +8,6 @@ namespace Trivia.Gameplay
 {
 	public class GameplayView : BaseSceneView
 	{
-		public Button backButton;
+		[SerializeField] private Button backButton;
 	}
 }
