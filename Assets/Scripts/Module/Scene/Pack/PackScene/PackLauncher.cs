@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Trivia.Boot;
 using UnityEngine;
+using Trivia.PackData;
 
 namespace Trivia.Pack
 {
@@ -18,7 +19,10 @@ namespace Trivia.Pack
 
         protected override IController[] GetSceneDependencies()
         {
-            return null;
+            return new IController[]
+            {
+                new PackDataController()
+            };
         }
 
         protected override IEnumerator InitSceneObject()
@@ -39,7 +43,7 @@ namespace Trivia.Pack
 
         public void SelectPack(string packID)
         {
-
+            
         }
     }
 
