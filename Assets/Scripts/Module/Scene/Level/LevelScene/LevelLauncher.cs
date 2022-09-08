@@ -4,12 +4,15 @@ using System.Collections;
 using System.Collections.Generic;
 using Trivia.Boot;
 using UnityEngine;
+using Trivia.LevelSpawner;
 
-namespace Trivia.Pack
+namespace Trivia.Level
 {
-    public class PackLauncher : SceneLauncher<PackLauncher, PackView>
+    public class LevelLauncher : SceneLauncher<LevelLauncher, LevelView>
     {
-        public override string SceneName => "Pack";
+        public override string SceneName => "Level";
+
+        private LevelSpawnerController levelSpawnerController;
 
         protected override IConnector[] GetSceneConnectors()
         {
@@ -18,12 +21,16 @@ namespace Trivia.Pack
 
         protected override IController[] GetSceneDependencies()
         {
-            return null;
+            return new IController[]
+            {
+                new LevelSpawnerController()
+            };
         }
 
         protected override IEnumerator InitSceneObject()
         {
             _view.SetCallbacks(GoBack);
+            levelSpawnerController.SetView(_view.levelSpawnerView);
             yield return null;
         }
 
@@ -34,13 +41,13 @@ namespace Trivia.Pack
 
         public void GoBack()
         {
-            SceneLoader.Instance.LoadScene("Home");
+            SceneLoader.Instance.LoadScene("Pack");
         }
 
-        public void SelectPack(string packID)
+        public void SelectLevel(string levelID)
         {
-
+            SceneLoader.Instance.LoadScene("Gameplay");
         }
     }
-
 }
+
