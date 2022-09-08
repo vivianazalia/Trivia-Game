@@ -38,6 +38,7 @@ namespace Trivia.Home
 
         protected override IEnumerator InitSceneObject()
         {
+            _view.SetCallbacks(StartPlay);
             yield return null;
         }
 
@@ -48,7 +49,7 @@ namespace Trivia.Home
 
         public void StartPlay()
         {
-            
+            SceneLoader.Instance.LoadScene("Gameplay");
         }
     }
 }
