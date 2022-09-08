@@ -9,4 +9,5 @@ public struct LevelStruct
     public string question;
     public string hint;
     public List<string> choices;
+    public int answer;
 }
